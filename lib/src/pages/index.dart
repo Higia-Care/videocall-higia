@@ -1,9 +1,8 @@
 import 'dart:async';
-
-import 'package:agora_flutter_quickstart/src/constants/constants_ui.dart';
-import 'package:agora_flutter_quickstart/src/widgets/logo_higia.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import '../widgets/logo_higia.dart';
+import '../constants/constants_ui.dart';
 import './call.dart';
 
 class IndexPage extends StatefulWidget {
@@ -55,7 +54,7 @@ class IndexState extends State<IndexPage> {
                 child: TextField(
                   controller: _channelController,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.perm_identity),
+                    prefixIcon: Icon(Icons.perm_identity),
                     errorText: _validateError ? 'El ID es obligatorio' : null,
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(width: 1),

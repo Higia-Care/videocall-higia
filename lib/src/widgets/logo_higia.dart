@@ -1,5 +1,5 @@
-import 'package:agora_flutter_quickstart/src/constants/constants_ui.dart';
 import 'package:flutter/material.dart';
+import '../constants/constants_ui.dart';
 
 class LogoHigia extends StatelessWidget {
   @override
