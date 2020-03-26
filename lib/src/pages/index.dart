@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:agora_flutter_quickstart/src/constants/constants_ui.dart';
-import 'package:agora_flutter_quickstart/src/widgets/appBar_higia.dart';
 import 'package:agora_flutter_quickstart/src/widgets/logo_higia.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,27 +28,49 @@ class IndexState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final styleTextWelcome = TextStyle(fontSize: 20);
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           LogoHigia(),
+          SizedBox(height: size.height * 0.05),
           Column(
             children: <Widget>[
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+                width: size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Hola, bienvenido', style: styleTextWelcome),
+                    Text('Para ingresar a la terapia ingrese su ID',
+                        style: styleTextWelcome),
+                  ],
+                ),
+              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: TextField(
                   controller: _channelController,
                   decoration: InputDecoration(
                     icon: Icon(Icons.perm_identity),
-                    errorText:
-                        _validateError ? 'Channel name is mandatory' : null,
+                    errorText: _validateError ? 'El ID es obligatorio' : null,
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(width: 1),
                     ),
-                    hintText: 'Ingrese id',
-                    hintStyle: TextStyle() //TODO: implement style
+                    hintText: 'Ingrese ID',
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: kprimaryColorTheme)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: kprimaryColorTheme)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: kprimaryColorTheme)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: kprimaryColorTheme)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: kprimaryColorTheme)),
                   ),
                 ),
               ),
@@ -61,7 +82,10 @@ class IndexState extends State<IndexPage> {
                 onPressed: onJoin,
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
-                  child: Text('Unirme a la terapia', style: TextStyle(fontSize: 20),),
+                  child: Text(
+                    'Unirme a la terapia',
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
                 color: ksecundaryHeaderColorTheme,
                 textColor: Colors.white,
