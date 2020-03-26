@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:agora_flutter_quickstart/src/widgets/appBar_higia.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
 import '../utils/settings.dart';
@@ -296,9 +297,7 @@ class _CallPageState extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Agora Flutter QuickStart'),
-      ),
+      appBar: AppBarHigia(),
       backgroundColor: Colors.black,
       body: Center(
         child: Stack(

@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:agora_flutter_quickstart/src/constants/constants_ui.dart';
+import 'package:agora_flutter_quickstart/src/widgets/appBar_higia.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import './call.dart';
@@ -26,49 +28,77 @@ class IndexState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Agora Flutter QuickStart'),
-      ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          height: 400,
-          child: Column(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: TextField(
-                    controller: _channelController,
-                    decoration: InputDecoration(
-                      errorText:
-                          _validateError ? 'Channel name is mandatory' : null,
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
-                      ),
-                      hintText: 'Channel name',
-                    ),
-                  ))
-                ],
+              Text(
+                "HIGIA",
+                style: TextStyle(
+                    color: kHigiaTitleColor,
+                    fontSize: 80,
+                    fontFamily: 'gillBold'),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: RaisedButton(
-                        onPressed: onJoin,
-                        child: Text('Join'),
-                        color: Colors.blueAccent,
-                        textColor: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
+              Text(
+                "care",
+                style: TextStyle(
+                    color: kHigiaCareTitleColor,
+                    fontSize: 50,
+                    fontFamily: 'gill'),
               )
             ],
           ),
-        ),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: 400,
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          child: TextField(
+                        controller: _channelController,
+                        decoration: InputDecoration(
+                          icon: Icon(Icons.perm_identity),
+                          errorText: _validateError
+                              ? 'Channel name is mandatory'
+                              : null,
+                          border: UnderlineInputBorder(
+                            borderSide: BorderSide(width: 1),
+                          ),
+                          hintText: 'Ingrese id',
+                        ),
+                      ))
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            onPressed: onJoin,
+                            child: Text('Unirme a la reunion'),
+                            color: ksecundaryHeaderColorTheme,
+                            textColor: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
