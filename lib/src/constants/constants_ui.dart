@@ -23,6 +23,7 @@ final TextStyle titlenumbersStyle = TextStyle(
 );
 
 var themeData = ThemeData(
+  ///This var provide the global theme for the app
   primaryColor: kprimaryColorTheme,
   textSelectionColor: kprimaryColorTheme,
   appBarTheme: kappBarTheme,

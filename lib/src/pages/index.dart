@@ -27,7 +27,10 @@ class IndexState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final styleTextWelcome = TextStyle(fontSize: 20);
+    final styleTextWelcome = TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w700,
+    );
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import '../constants/constants_ui.dart';
 
@@ -9,19 +10,26 @@ class LogoHigia extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(
-          "HIGIA",
-          style: TextStyle(
-              color: kHigiaTitleColor,
-              fontSize: size.width * 0.21,
-              fontFamily: 'gillBold'),
+        FadeInLeft(
+          duration: Duration(milliseconds: 800),
+          child: Text(
+            "HIGIA",
+            style: TextStyle(
+                color: kHigiaTitleColor,
+                fontSize: size.width * 0.21,
+                fontFamily: 'gillBold'),
+          ),
         ),
-        Text(
-          "care",
-          style: TextStyle(
-              color: kHigiaCareTitleColor,
-              fontSize: size.width * 0.14,
-              fontFamily: 'gill'),
+        FadeInLeft(
+          delay: Duration(milliseconds: 1000),
+          duration: Duration(milliseconds: 800),
+          child: Text(
+            "care",
+            style: TextStyle(
+                color: kHigiaCareTitleColor,
+                fontSize: size.width * 0.14,
+                fontFamily: 'gill'),
+          ),
         )
       ],
     );
